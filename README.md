@@ -14,3 +14,6 @@ Control_drone.py:
 Creates publishers for takeoff, landing, and position commands. Commands pitch by 1 radian. Sends drone forward for 2 seconds, pauses, then sends the drone backward for 2 seconds.
 
 Command to view image feed: rosrun image_view image_view image:=/ardrone/image_raw
+
+image_saver.py: 
+Creates publisher and subscriber for AR Drone 2.0 video feed, and saves x amount of images to current directory.
