@@ -1,12 +1,12 @@
 AR Drone 2.0 Control Software
 
-This repo uses ROS to allows the user to connect to the AR Drone 2.0, command the drone to take off, control the position of the drone, and command the drone to land.
+This repo uses ROS to allow the user to connect to the AR Drone 2.0, command the drone to take off, control the position of the drone, and command the drone to land.
 
 Download github repo: 
 https://github.com/AutonomyLab/ardrone_autonomy.git
 
 Launch file:
-Establishes connection with AR Drone through wifi with standard IP address for AR Drones.
+Establishes connection with AR Drone through wifi with standard IP address for AR Drones and gets Navdata.
 
 Command: roslauch launch_drone.launch
 
