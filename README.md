@@ -4,6 +4,7 @@ This repo uses ROS to allow the user to connect to the AR Drone 2.0, command the
 
 Download github repo: 
 https://github.com/AutonomyLab/ardrone_autonomy.git
+
 Other requirements:
 ROS
 Open CV2
