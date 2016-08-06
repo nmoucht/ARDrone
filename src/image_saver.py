@@ -18,6 +18,12 @@ class image_save():
    	    	msg=rospy.wait_for_message("/ardrone/image_raw", imageX)
    	    	img = self.bridge.imgmsg_to_cv2(msg, "bgr8")    
    	    	cv2.imwrite("droneIm"+str(x)+".jpg", img)
+   	    	self.imageOpener("droneIm"+str(x)+".jpg")
+   	    	
+     def imageOpener(self,path_name):
+     	    img = Image.open(path_name)
+     	    #do something with image
+    	
 
 def main():
       rospy.init_node('save_picture', anonymous = True)
