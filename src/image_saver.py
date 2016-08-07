@@ -4,7 +4,7 @@ the image, waits for the message, converts the raw image using Open CV, and save
 the image as droneIm(x).jpg. Though this code is in a seperate class, it can easily 
 be implemented in other python scripts.
 '''
-import cv2s
+import cv2
 from PIL import Image
 import rospy
 from std_msgs.msg import String
