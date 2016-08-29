@@ -26,21 +26,27 @@ def control():
 	time=0
 	while(z==True):
 		angle=raw_input("Enter an angle between 90 and -90, or 'land': ")
+		
 		if(angle=="land"):
 			z=False
 		else:
+			print "Calculating time..."
 			a=float(angle)
 			if(a>0):
 				time=((4.3739*(10**-5))*(a**2))+((7.8375*(10**-3))*a)
+				print "Executing parameter..."
+				SendCommandClock()
+				timer.sleep(time)
 			elif(a<0):
 				a*=-1
 				time=((5.0178*(10**-5))*(a**2))+((0.0101)*a)
-		SendCommandS()
-		timer.sleep(time)
-		SendCommandF()
-		timer.sleep(0.5)
-		ResetCommand()
-		time=0
+				print "Executing parameter..."
+				SendCommandCounter()
+				timer.sleep(time)
+			SendCommandF()
+			timer.sleep(0.75)
+			ResetCommand()
+			time=0
 	rospy.sleep(2)
 	land()
 	print "done."
@@ -56,7 +62,7 @@ def land():
 		pubL.publish(Empty())
 		rate.sleep()
 
-def SendCommandF(self,roll=0,pitch=0.75,yaw_velocity=0,z_velocity=0):
+def SendCommandF(roll=0,pitch=0.75,yaw_velocity=0,z_velocity=0):
 	commandDrone= rospy.Publisher('/cmd_vel', Twist)
 	command=Twist()
 	command.linear.x = pitch
@@ -70,7 +76,16 @@ def SendCommandF(self,roll=0,pitch=0.75,yaw_velocity=0,z_velocity=0):
 #pitch +forward -backward
 #yaw +counterclockwise -clockwise
 
-def SendCommandS(roll=0,pitch=0,yaw_velocity=-0.75,z_velocity=0):
+def SendCommandClock(roll=0,pitch=0,yaw_velocity=-0.75,z_velocity=0):
+	#commandDrone= rospy.Publisher('/cmd_vel', Twist)
+	command=Twist()
+	command.linear.x = pitch
+	command.linear.y = roll
+	command.linear.z = z_velocity
+	command.angular.z = yaw_velocity
+	commandDrone.publish(command)
+
+def SendCommandCounter(roll=0,pitch=0,yaw_velocity=0.75,z_velocity=0):
 	#commandDrone= rospy.Publisher('/cmd_vel', Twist)
 	command=Twist()
 	command.linear.x = pitch
