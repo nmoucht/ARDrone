@@ -17,7 +17,7 @@ Establishes connection with AR Drone through wifi with standard IP address for A
 Command: roslauch launch_drone.launch
 
 Control_drone.py:
-Creates publishers for takeoff, landing, and position commands. Commands roll,pitch,yaw, and z by 1. Current implementation sends drone forward for 2 seconds, pauses, then sends the drone backward for 2 seconds.
+Creates publishers for takeoff, landing, and position commands. Commands roll,pitch,yaw, and z by 0.75. Current implementation: launches the drone, asks angle from user, calculates time needed to turn to the angle, turns to the angle, then flies forward or 0.5 seconds. Process is repeated until user commands drone to land
 
 Command to view image feed: rosrun image_view image_view image:=/ardrone/image_raw
 
