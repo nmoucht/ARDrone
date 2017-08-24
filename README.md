@@ -1,6 +1,6 @@
 AR Drone 2.0 Control Software
 
-This repo uses ROS to allow the user to connect to the AR Drone 2.0, command the drone to take off, control the position of the drone, and command the drone to land.
+This repository uses ROS to allow the user to connect to the AR Drone 2.0, command the drone to take off, control the position of the drone, and command the drone to land.
 
 Download github repo: 
 https://github.com/AutonomyLab/ardrone_autonomy.git
